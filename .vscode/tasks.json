@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "SCons Build",
+            "command": "scons",
+            "type": "shell",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Execute",
+            "command": "${workspaceFolder}/program.exe",
+            "type": "shell",
+            "dependsOn":["SCons Build"],
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}"
+            }
+        },
+        {
+            "label": "Build & Run",
+            "dependsOn": ["SCons Build", "Execute"],
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+[requires]
+glm/0.9.9.5@g-truc/stable
+benchmark/1.5.0
+gtest/1.8.1@bincrafters/stable
+
+[generators]
+cmake
+cmake_find_package
+cmake_paths

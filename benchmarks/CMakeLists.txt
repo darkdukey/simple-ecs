@@ -1,0 +1,8 @@
+set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})
+find_package(benchmark REQUIRED)
+find_package (Threads)
+include(${CMAKE_BINARY_DIR}/Findbenchmark.cmake)
+add_executable(benchmarks benchmarks.cpp)
+target_link_libraries(benchmarks PRIVATE coco-core benchmark ${CMAKE_THREAD_LIBS_INIT})
+setWarnings(benchmarks)
+setStandard(benchmarks)
